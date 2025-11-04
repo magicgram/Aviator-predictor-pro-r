@@ -58,7 +58,7 @@ const App: React.FC = () => {
   
   if (isLoadingConfig) {
       return (
-        <div className="min-h-screen text-white font-sans flex items-center justify-center p-4">
+        <div className="min-h-screen text-white font-sans flex items-center justify-center">
           <div className="flex justify-center items-center">
             <svg className="animate-spin -ml-1 mr-3 h-8 w-8 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -72,7 +72,7 @@ const App: React.FC = () => {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen text-white font-sans flex items-center justify-center p-4">
+      <div className="min-h-screen text-white font-sans flex items-center justify-center">
         {showOnboarding && <OnboardingModal onClose={handleOnboardingClose} />}
         {user ? (
           <PredictorScreen 

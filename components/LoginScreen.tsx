@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { verifyUser, VerificationResponse } from '../services/authService';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -9,10 +8,11 @@ interface LoginScreenProps {
 }
 
 const UserIcon: React.FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-black" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+    </svg>
 );
+
 
 const DepositMessage: React.FC<{
   onBack: () => void;
@@ -25,11 +25,11 @@ const DepositMessage: React.FC<{
     <div className="w-full max-w-sm mx-auto text-white text-center animate-fade-in-up">
       <h2 className="text-2xl font-bold mb-4">{t('depositMessageTitle')}</h2>
       <p className="mb-6">{t('depositMessageAccess')}</p>
-      <div className="space-y-3">
+      <div className="space-y-4">
         <button
           onClick={onRegister}
           disabled={!affiliateLink || isRegistering}
-          className="w-full py-3 bg-white rounded-lg text-red-500 font-bold text-lg hover:bg-gray-200 transition-all duration-300 shadow-lg disabled:opacity-50"
+          className="w-full py-3 bg-white rounded-lg text-red-500 font-bold text-lg hover:bg-gray-200 transition-all duration-300 disabled:opacity-50 shadow-[0_4px_10px_rgba(150,20,20,0.4)]"
         >
           {isRegistering ? (
             <div className="flex justify-center items-center">
@@ -39,13 +39,17 @@ const DepositMessage: React.FC<{
               </svg>
               {t('redirecting')}...
             </div>
-          ) : t('depositAndGetAccess')}
+          ) : (
+             <div className="flex justify-center items-center">
+                <span>{t('depositAndGetAccess').toUpperCase()}</span>
+             </div>
+          )}
         </button>
         <button
           onClick={onBack}
           className="w-full py-3 bg-transparent border-2 border-white/50 rounded-lg text-white font-semibold text-lg hover:bg-white/10 transition duration-300"
         >
-          {t('back')}
+          {t('back').toUpperCase()}
         </button>
       </div>
        <style>{`
@@ -72,11 +76,11 @@ const ReDepositMessage: React.FC<{
     <div className="w-full max-w-sm mx-auto text-white text-center animate-fade-in-up">
       <h2 className="text-2xl font-bold mb-4">{t('reDepositMessageTitle')}</h2>
       <p className="mb-6">{t('reDepositMessageContinue', { amount: '$4' })}</p>
-      <div className="space-y-3">
+      <div className="space-y-4">
         <button
           onClick={onRegister}
           disabled={!affiliateLink || isRegistering}
-          className="w-full py-3 bg-white rounded-lg text-red-500 font-bold text-lg hover:bg-gray-200 transition-all duration-300 shadow-lg disabled:opacity-50"
+          className="w-full py-3 bg-white rounded-lg text-red-500 font-bold text-lg hover:bg-gray-200 transition-all duration-300 disabled:opacity-50 shadow-[0_4px_10px_rgba(150,20,20,0.4)]"
         >
           {isRegistering ? (
             <div className="flex justify-center items-center">
@@ -86,13 +90,17 @@ const ReDepositMessage: React.FC<{
               </svg>
               {t('redirecting')}...
             </div>
-          ) : t('depositAgain')}
+          ) : (
+            <div className="flex justify-center items-center">
+              <span>{t('depositAgain').toUpperCase()}</span>
+            </div>
+          )}
         </button>
         <button
           onClick={onBack}
           className="w-full py-3 bg-transparent border-2 border-white/50 rounded-lg text-white font-semibold text-lg hover:bg-white/10 transition duration-300"
         >
-          {t('back')}
+          {t('back').toUpperCase()}
         </button>
       </div>
     </div>
@@ -171,88 +179,103 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
   const handleBackFromReDeposit = useCallback(() => setNeedsReDeposit(false), []);
 
   return (
-    <div className="w-full h-full flex flex-col items-center bg-[#f52e2e] font-['Poppins'] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col items-center bg-[#ef1a25] font-['Poppins'] relative overflow-hidden">
         
-        <div className="w-full max-w-sm flex flex-col items-center justify-center flex-grow p-6 z-10">
-            {needsDeposit ? (
-                <DepositMessage onBack={handleBackFromDeposit} onRegister={handleRegister} isRegistering={isRegistering} affiliateLink={affiliateLink} />
-            ) : needsReDeposit ? (
-                <ReDepositMessage onBack={handleBackFromReDeposit} onRegister={handleRegister} isRegistering={isRegistering} affiliateLink={affiliateLink} />
-            ) : (
-                <>
-                    <img src="https://i.ibb.co/L8y2vM3/aviator-logo-top.png" alt="Aviator Predictor Pro" className="w-64" />
+      {/* Decorative white curve and bottom logo */}
+      <div className="absolute bottom-0 left-0 w-full h-[20vh] pointer-events-none">
+          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[180vw] h-[22vh] bg-[#d01011] rounded-t-full"></div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[180vw] h-[22vh] bg-white rounded-t-full"></div>
+          <img 
+            src="https://i.postimg.cc/d0V9DrJY/Picsart-25-11-04-16-01-32-557.png" 
+            alt="Aviator Predictor Pro" 
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 z-10" 
+            style={{ filter: 'grayscale(1) brightness(0.7) opacity(0.6)' }} 
+          />
+      </div>
 
-                    <div className="w-full mt-8">
-                        <label htmlFor="playerId" className="text-white text-sm font-semibold mb-2 block text-left">
-                            PLAYER ID
-                        </label>
-                        <div className="relative flex items-center">
-                            <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <UserIcon />
-                            </div>
-                            <input
-                                id="playerId"
-                                type="text"
-                                value={playerId}
-                                onChange={(e) => setPlayerId(e.target.value)}
-                                placeholder="12345678"
-                                className="w-full pl-10 pr-4 py-3 bg-white border border-red-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 shadow-inner"
-                            />
-                        </div>
-                    </div>
 
-                    {error && (
-                        <div className="w-full mt-4 p-3 rounded-md text-center text-sm bg-red-800/80 text-white border border-red-600">
-                            {error}
-                        </div>
-                    )}
+      <div className="w-full h-full flex flex-col items-center justify-center z-10 px-6 pt-6 pb-[25vh]">
+          {needsDeposit ? (
+              <DepositMessage onBack={handleBackFromDeposit} onRegister={handleRegister} isRegistering={isRegistering} affiliateLink={affiliateLink} />
+          ) : needsReDeposit ? (
+              <ReDepositMessage onBack={handleBackFromReDeposit} onRegister={handleRegister} isRegistering={isRegistering} affiliateLink={affiliateLink} />
+          ) : (
+              <div className="w-full max-w-sm flex flex-col items-center justify-between flex-grow">
+                  {/* Group 1: Logo */}
+                  <div className="w-full flex flex-col items-center">
+                    <img src="https://i.postimg.cc/d0V9DrJY/Picsart-25-11-04-16-01-32-557.png" alt="Aviator Predictor Pro" className="w-72 object-contain" />
+                  </div>
 
-                    <div className="w-full pt-6">
-                        <button
-                            onClick={handleContinue}
-                            disabled={isLoading || !playerId}
-                            className="w-full py-3 bg-white rounded-lg text-red-500 font-bold text-lg hover:bg-gray-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 shadow-md"
-                        >
-                            {isLoading ? (
-                                <div className="flex justify-center items-center">
-                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                    </svg>
-                                    {t('verifying')}...
-                                </div>
-                            ) : t('continue').toUpperCase()}
-                        </button>
-                    </div>
-                    
-                    <div className="w-full mt-8 text-center">
-                        <p className="text-white text-sm mb-2 font-semibold">{t('dontHaveAccount').toUpperCase()}</p>
-                        <button
-                            onClick={handleRegister}
-                            disabled={!affiliateLink || isRegistering}
-                            className="w-full py-3 bg-white rounded-lg text-red-500 font-bold text-lg hover:bg-gray-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 shadow-md"
-                        >
-                             {isRegistering ? (
-                                 <div className="flex justify-center items-center">
-                                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                    </svg>
-                                     {t('redirecting')}...
-                                 </div>
-                             ) : t('registerHere').toUpperCase()}
-                        </button>
-                    </div>
-                </>
-            )}
-        </div>
+                  {/* Group 2: Input & Continue */}
+                  <div className="w-full">
+                      <label htmlFor="playerId" className="text-white text-xs font-semibold mb-2 block text-left tracking-wider">
+                          PLAYER ID
+                      </label>
+                      <div className="relative flex items-center">
+                          <div className="absolute left-3.5 top-1/2 -translate-y-1/2">
+                              <UserIcon />
+                          </div>
+                          <input
+                              id="playerId"
+                              type="text"
+                              value={playerId}
+                              onChange={(e) => setPlayerId(e.target.value)}
+                              placeholder="12345678"
+                              className="w-full pl-10 pr-4 py-3 bg-white border border-black/20 rounded-lg text-black placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300"
+                          />
+                      </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-48 pointer-events-none z-0">
-            <div className="w-full h-full bg-white" style={{ clipPath: 'ellipse(120% 60% at 50% 100%)' }}></div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <img src="https://i.ibb.co/R4T5g5d/aviator-logo-footer.png" alt="Aviator Predictor Pro" className="w-40 opacity-70" />
-            </div>
-        </div>
+                      {error && (
+                          <div className="w-full mt-2 p-3 rounded-md text-center text-sm bg-red-800/80 text-white border border-red-600">
+                              {error}
+                          </div>
+                      )}
+
+                      <div className="w-full pt-4">
+                          <button
+                              onClick={handleContinue}
+                              disabled={isLoading || !playerId}
+                              className="w-full relative py-3 bg-white rounded-lg text-red-600 font-bold text-lg hover:bg-gray-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 shadow-[0_4px_14px_0_rgb(0,0,0,0.1)]"
+                          >
+                              {isLoading ? (
+                                  <div className="flex justify-center items-center">
+                                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                      </svg>
+                                      {t('verifying')}...
+                                  </div>
+                              ) : (
+                                  <span>COUNTINUE</span>
+                              )}
+                          </button>
+                      </div>
+                  </div>
+
+                  {/* Group 3: Register */}
+                  <div className="w-full text-center">
+                      <p className="text-white text-xs mb-2 font-semibold tracking-wider">I DON'T HAVE AN ACCOUNT</p>
+                      <button
+                          onClick={handleRegister}
+                          disabled={!affiliateLink || isRegistering}
+                          className="w-full relative py-3 bg-white rounded-lg text-red-600 font-bold text-lg hover:bg-gray-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 shadow-[0_4px_14px_0_rgb(0,0,0,0.1)]"
+                      >
+                          {isRegistering ? (
+                              <div className="flex justify-center items-center">
+                                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                  </svg>
+                                  {t('redirecting')}...
+                              </div>
+                          ) : (
+                              <span>{t('registerHere').toUpperCase()}</span>
+                          )}
+                      </button>
+                  </div>
+              </div>
+          )}
+      </div>
     </div>
   );
 };
