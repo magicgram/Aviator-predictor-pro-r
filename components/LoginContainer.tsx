@@ -38,8 +38,12 @@ const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affilia
   const handleAdminClose = useCallback(() => setShowAdminModal(false), []);
   const handleBackToLogin = useCallback(() => setCurrentView('login'), []);
 
+  const containerClasses = currentView === 'login'
+    ? "w-full h-full"
+    : "w-full max-w-md h-[90vh] max-h-[700px] flex flex-col p-6 card-bg rounded-2xl relative";
+
   return (
-    <div className="w-full max-w-md h-[90vh] max-h-[700px] flex flex-col p-6 card-bg rounded-2xl relative">
+    <div className={containerClasses}>
       {showAdminModal && <AdminAuthModal onSuccess={handleAdminSuccess} onClose={handleAdminClose} />}
       <Sidebar 
         isOpen={isSidebarOpen}
@@ -55,7 +59,6 @@ const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affilia
       ) : (
         <LoginScreen 
             onLoginSuccess={onLoginSuccess}
-            onOpenSidebar={handleOpenSidebar}
             affiliateLink={affiliateLink}
         />
       )}
