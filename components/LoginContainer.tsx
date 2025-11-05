@@ -74,4 +74,4 @@ const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affilia
   );
 };
 
-export default React.memo(LoginContainer);
+export default LoginContainer;

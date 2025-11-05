@@ -228,7 +228,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                 <div className="w-full flex flex-col items-center space-y-5 mt-12 sm:mt-16">
                     <div className="w-full">
                         <label htmlFor="playerId" className="font-poppins text-white text-xs font-bold mb-1.5 block text-left tracking-widest">
-                            PLAYER ID
+                            {t('playerIdLabel').toUpperCase()}
                         </label>
                         <div className="relative flex items-center">
                             <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
@@ -258,7 +258,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                                 </svg>
                             </div>
                         ) : (
-                            <span>COUNTINUE</span>
+                            <span>{t('continue')}</span>
                         )}
                     </button>
                 </div>
@@ -270,7 +270,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                 )}
 
                 <div className="w-full text-center mt-8">
-                    <p className="font-poppins text-white text-xs mb-2 font-bold tracking-wider">I DON'T HAVE AN ACCOUNT</p>
+                    <p className="font-poppins text-white text-xs mb-2 font-bold tracking-wider">{t('dontHaveAccount').toUpperCase()}</p>
                     <button
                         onClick={handleRegister}
                         disabled={!affiliateLink || isRegistering}
@@ -284,7 +284,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                                 </svg>
                             </div>
                         ) : (
-                            <span>REGISTER HERE</span>
+                            <span>{t('registerHere')}</span>
                         )}
                     </button>
                 </div>
@@ -320,4 +320,4 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
   );
 };
 
-export default React.memo(LoginScreen);
+export default LoginScreen;
