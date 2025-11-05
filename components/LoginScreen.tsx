@@ -1,4 +1,5 @@
 
+
 import React, { useState, useCallback } from 'react';
 import { verifyUser, VerificationResponse } from '../services/authService';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -289,7 +290,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                 </div>
             </div>
 
-            <div className="absolute bottom-[-5px] left-[-5px] w-[calc(100%+10px)] h-[30vh] z-0 pointer-events-none">
+            <div className="absolute bottom-[-1px] left-[-1px] right-[-1px] h-[calc(30vh+1px)] z-0 pointer-events-none">
               <div className="relative w-full h-full">
                 <svg
                   className="absolute bottom-0 left-0 w-full h-full"
@@ -297,7 +298,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                   preserveAspectRatio="none"
                   style={{ filter: 'drop-shadow(0 -4px 5px rgba(0, 0, 0, 0.15))' }}
                 >
-                  <path d="M0,100 C25,120 70,-30 100,30 V100 Z" fill="white" />
+                  <path d="M0,100 C35,100 70,20 100,20 V100 Z" fill="white" />
                 </svg>
 
                 <div className="absolute bottom-4 right-5 text-center z-10 pointer-events-auto">
