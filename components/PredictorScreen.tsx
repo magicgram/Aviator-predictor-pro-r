@@ -40,13 +40,13 @@ const GuideIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 const LimitReachedView = React.memo(({ handleDepositRedirect, affiliateLink }: { handleDepositRedirect: () => void; affiliateLink: string | null; }) => {
   const { t } = useLanguage();
   return (
-    <div className="text-center p-8 card-bg rounded-lg shadow-lg w-full max-w-md">
-      <h2 className="text-2xl font-bold text-yellow-400">{t('limitReachedTitle')}</h2>
-      <p className="mt-4 text-slate-300">{t('limitReachedText', { amount: '$4' })}</p>
+    <div className="text-center p-8 bg-white text-gray-800 rounded-lg shadow-xl w-full max-w-md">
+      <h2 className="text-2xl font-russo text-red-500 uppercase">{t('limitReachedTitle')}</h2>
+      <p className="mt-4 text-gray-600 font-poppins">{t('limitReachedText', { amount: '$4' })}</p>
       <button 
         onClick={handleDepositRedirect}
         disabled={!affiliateLink}
-        className="mt-6 w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg text-white font-semibold text-lg hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="mt-6 w-full py-3 bg-[#f8d7da] rounded-xl text-[#e51e2a] font-russo font-bold text-xl tracking-wider hover:bg-[#f6c8cc] disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
       >
         {t('depositNow')}
       </button>
@@ -75,24 +75,24 @@ const PredictorView = React.memo((props: {
      <div className="w-full h-full flex flex-col">
        <header className="flex justify-between items-center">
         <div className="flex items-center gap-3">
-             <div className="w-12 h-12 flex-shrink-0 bg-slate-800/50 rounded-full flex items-center justify-center">
+             <div className="w-12 h-12 flex-shrink-0 bg-gray-100 border-2 border-gray-200 rounded-full flex items-center justify-center">
                 {props.profilePic ? (
                     <img src={props.profilePic} alt={t('profileAlt')} className="w-full h-full rounded-full object-cover" />
                 ) : (
-                    <UserIcon className="w-8 h-8 text-cyan-300" />
+                    <UserIcon className="w-8 h-8 text-red-400" />
                 )}
             </div>
             <div>
-                <p className="font-bold text-lg truncate max-w-40">{t('welcomeUser', { playerId: props.user.playerId })}</p>
-                <p className="text-sm text-slate-400">Aviator Predictor Pro</p>
-                <p className="text-xs text-slate-500 mt-1 font-mono">{props.currentTime}</p>
+                <p className="font-bold text-lg truncate max-w-40 text-gray-800">{t('welcomeUser', { playerId: props.user.playerId })}</p>
+                <p className="text-sm text-gray-500">Aviator Predictor Pro</p>
+                <p className="text-xs text-gray-400 mt-1 font-mono">{props.currentTime}</p>
             </div>
         </div>
         <div className="flex items-center gap-2">
-            <button onClick={props.onOpenGuide} className="p-2 rounded-full hover:bg-slate-800/50" aria-label={t('openGuide')}>
+            <button onClick={props.onOpenGuide} className="p-2 rounded-full text-gray-600 hover:bg-red-100" aria-label={t('openGuide')}>
                 <GuideIcon className="w-6 h-6" />
             </button>
-            <button onClick={props.onOpenSidebar} className="p-2 rounded-full hover:bg-slate-800/50" aria-label={t('openMenu')}>
+            <button onClick={props.onOpenSidebar} className="p-2 rounded-full text-gray-600 hover:bg-red-100" aria-label={t('openMenu')}>
                 <MenuIcon className="w-6 h-6" />
             </button>
         </div>
@@ -100,17 +100,17 @@ const PredictorView = React.memo((props: {
 
       <main className="flex-grow flex flex-col items-center justify-center text-center">
         <div className={`relative w-48 h-48 md:w-56 md:h-56 rounded-full flex items-center justify-center transition-all duration-300
-          ${props.prediction ? 'bg-gradient-to-br from-rose-500/20 to-red-500/10 border-4 border-red-500' : 
-            'bg-cyan-500/10 border-4 border-cyan-400 animate-pulse'}`}>
+          ${props.prediction ? 'bg-red-100 border-4 border-red-500' : 
+            'bg-red-50 border-4 border-red-300 animate-pulse'}`}>
           <div className="flex flex-col items-center justify-center">
             {props.prediction && (
-                <div className="bg-red-900/70 border border-red-600/60 px-4 py-1 rounded-full mb-2 shadow-md">
-                    <p className="text-sm font-bold text-red-300 tracking-widest uppercase">{t('flewAway')}</p>
+                <div className="bg-red-500 px-4 py-1 rounded-full mb-2 shadow-md">
+                    <p className="text-sm font-bold text-white tracking-widest uppercase">{t('flewAway')}</p>
                 </div>
             )}
             <p className={`font-bold font-mono transition-colors duration-300 whitespace-nowrap
-                ${props.prediction ? 'text-5xl md:text-6xl text-red-400' : 
-                  `text-4xl md:text-5xl ${props.isPredicting ? 'text-slate-400' : 'text-white'}`
+                ${props.prediction ? 'text-5xl md:text-6xl text-red-500' : 
+                  `text-4xl md:text-5xl ${props.isPredicting ? 'text-gray-400' : 'text-gray-800'}`
                 }`}>
                 {props.displayValue}
             </p>
@@ -120,9 +120,9 @@ const PredictorView = React.memo((props: {
         <div className="w-full">
             <div className="mt-6 w-full max-w-xs h-24 flex items-center justify-center mx-auto">
                 {props.accuracy && props.prediction ? (
-                    <div className="w-full p-4 bg-slate-900/70 border border-slate-700 rounded-lg">
-                        <p className="text-cyan-300 font-bold text-xl">{t('accuracy')}: {props.accuracy}%</p>
-                        <p className="text-cyan-200/80 text-sm mt-1">{t('cashoutBefore')} 👉🏻 {props.prediction}</p>
+                    <div className="w-full p-4 bg-red-50 border border-red-200 rounded-lg">
+                        <p className="text-red-600 font-bold text-xl">{t('accuracy')}: {props.accuracy}%</p>
+                        <p className="text-gray-700 text-sm mt-1">{t('cashoutBefore')} 👉🏻 {props.prediction}</p>
                     </div>
                 ) : null}
             </div>
@@ -130,19 +130,19 @@ const PredictorView = React.memo((props: {
       </main>
 
       <footer className="space-y-3">
-         <p className="text-center text-slate-400">{t('predictionsLeft', { count: props.predictionsLeft })}</p>
-        <div className="grid grid-cols-2 gap-4">
+         <p className="text-center text-gray-500 font-poppins">{t('predictionsLeft', { count: props.predictionsLeft })}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <button 
             onClick={props.onGetSignal}
             disabled={props.isPredicting || props.isRoundComplete}
-            className="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg text-white font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            className="w-full py-3 bg-[#f8d7da] rounded-xl text-[#e51e2a] font-russo font-bold text-xl tracking-wider hover:bg-[#f6c8cc] disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
           >
             {props.isPredicting ? t('predicting') : t('getSignal')}
           </button>
           <button 
             onClick={props.onNextRound}
             disabled={!props.isRoundComplete || props.isPredicting}
-            className="w-full py-3 bg-transparent border-2 border-indigo-500 rounded-lg text-white font-semibold text-lg hover:bg-indigo-500/20 disabled:opacity-50 transition duration-300 btn-glow-dark"
+            className="w-full py-3 bg-transparent border-2 border-[#e51e2a] rounded-xl text-[#e51e2a] font-russo font-bold text-lg hover:bg-red-50 disabled:opacity-70 transition duration-300"
           >
             {t('nextRound')}
           </button>
@@ -279,7 +279,7 @@ const PredictorScreen: React.FC<PredictorScreenProps> = ({ user, onLogout, affil
   }
   
   return (
-    <div className="w-full max-w-md h-[90vh] max-h-[700px] flex flex-col p-6 card-bg rounded-2xl relative">
+    <div className="w-full max-w-md h-[90vh] max-h-[700px] flex flex-col p-6 bg-white text-gray-800 rounded-2xl shadow-2xl relative">
       {isGuideOpen && <GuideModal onClose={() => setIsGuideOpen(false)} />}
       {showAdminModal && <AdminAuthModal onSuccess={handleAdminSuccess} onClose={handleAdminClose} />}
       <Sidebar 

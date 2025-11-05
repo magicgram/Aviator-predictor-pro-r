@@ -1,4 +1,5 @@
 
+
 import React, { useState, useCallback } from 'react';
 import Sidebar from './Sidebar';
 import TestPostbackScreen from './TestPostbackScreen';
@@ -44,7 +45,7 @@ const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affilia
 
   const containerClasses = currentView === 'login'
     ? "w-full h-full"
-    : "w-full max-w-md h-[90vh] max-h-[700px] flex flex-col p-6 card-bg rounded-2xl relative";
+    : "w-full max-w-md h-[90vh] max-h-[700px] flex flex-col p-6 bg-white text-gray-800 rounded-2xl shadow-2xl relative";
 
   return (
     <div className={containerClasses}>

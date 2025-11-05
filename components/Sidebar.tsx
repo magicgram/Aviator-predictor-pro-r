@@ -107,10 +107,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
   return (
     <>
         <div 
-            className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            className={`fixed inset-0 bg-red-900/30 backdrop-blur-sm z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             onClick={onClose}
         />
-        <div className={`fixed top-0 left-0 h-full w-72 bg-gradient-to-b from-[#0a0a24] to-[#020418] shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
+        <div className={`fixed top-0 left-0 h-full w-72 bg-white text-gray-800 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
             <input
                 type="file"
                 ref={fileInputRef}
@@ -123,14 +123,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                     <div className="flex items-center gap-3">
                         <button
                             onClick={handleProfilePicClick}
-                            className="w-12 h-12 flex-shrink-0 bg-slate-800 rounded-full group relative disabled:cursor-not-allowed flex items-center justify-center"
+                            className="w-12 h-12 flex-shrink-0 bg-gray-100 border-2 border-gray-200 rounded-full group relative disabled:cursor-not-allowed flex items-center justify-center"
                             disabled={!isLoggedIn}
                             aria-label={t('changeProfilePic')}
                         >
                             {profilePic ? (
                                 <img src={profilePic} alt={t('profileAlt')} className="w-full h-full rounded-full object-cover" />
                             ) : (
-                                <UserIcon className="w-8 h-8 text-cyan-300" />
+                                <UserIcon className="w-8 h-8 text-red-500" />
                             )}
                             {isLoggedIn && (
                                 <div className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
@@ -139,11 +139,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                             )}
                         </button>
                         <div>
-                            <p className="font-bold text-lg text-white truncate max-w-40">{playerId ? t('welcomeUser', {playerId}) : t('welcome')}</p>
-                            <p className="text-sm text-slate-400">Aviator Predictor Pro</p>
+                            <p className="font-bold text-lg text-gray-800 truncate max-w-40">{playerId ? t('welcomeUser', {playerId}) : t('welcome')}</p>
+                            <p className="text-sm text-gray-500">Aviator Predictor Pro</p>
                         </div>
                     </div>
-                    <button onClick={onClose} className="p-2 rounded-full text-slate-400 hover:bg-slate-800/50">
+                    <button onClick={onClose} className="p-2 rounded-full text-gray-500 hover:bg-red-100">
                         <CloseIcon className="w-6 h-6"/>
                     </button>
                 </div>
@@ -154,7 +154,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                     <button 
                         onClick={() => onNavigate('predictor')}
                         disabled={!isLoggedIn}
-                        className="flex items-center gap-4 p-3 rounded-lg text-left text-slate-300 hover:bg-cyan-400/10 hover:text-cyan-300 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:text-slate-300/50"
+                        className="flex items-center gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:text-gray-400"
                     >
                         <HomeIcon className="w-6 h-6"/>
                         <span className="font-semibold">{t('predictorHome')}</span>
@@ -162,7 +162,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                     {isAdminFeatureEnabled && (
                       <button 
                           onClick={onTestPostbackClick}
-                          className="flex items-center gap-4 p-3 rounded-lg text-left text-slate-300 hover:bg-cyan-400/10 hover:text-cyan-300 transition-colors duration-200"
+                          className="flex items-center gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
                       >
                           <TestIcon className="w-6 h-6"/>
                           <span className="font-semibold">{t('testPostback')}</span>
@@ -171,7 +171,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                      <div>
                         <button
                             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                            className="w-full flex items-center justify-between gap-4 p-3 rounded-lg text-left text-slate-300 hover:bg-cyan-400/10 hover:text-cyan-300 transition-colors duration-200"
+                            className="w-full flex items-center justify-between gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
                         >
                             <div className="flex items-center gap-4">
                                 <LanguageIcon className="w-6 h-6" />
@@ -187,7 +187,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                                     <button
                                         key={lang.code}
                                         onClick={() => handleLanguageSelect(lang.code)}
-                                        className={`w-full text-left p-2 rounded-md text-sm transition-colors ${language === lang.code ? 'bg-cyan-500/20 text-cyan-200' : 'text-slate-400 hover:bg-slate-700/50'}`}
+                                        className={`w-full text-left p-2 rounded-md text-sm transition-colors ${language === lang.code ? 'bg-red-100 text-red-600' : 'text-gray-600 hover:bg-red-50'}`}
                                     >
                                         {lang.flag} {lang.name}
                                     </button>
@@ -198,13 +198,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                 </div>
             </nav>
             
-            <div className="p-4 border-t border-cyan-400/10 flex-shrink-0">
+            <div className="p-4 border-t border-red-100 flex-shrink-0">
                 <div className="flex items-center justify-between">
                     <div>
                         {isLoggedIn && (
                             <button 
                                 onClick={onLogout}
-                                className="flex items-center gap-4 p-3 rounded-lg text-left text-slate-300 hover:bg-rose-500/10 hover:text-rose-400 transition-colors duration-200"
+                                className="flex items-center gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
                             >
                                 <LogoutIcon className="w-6 h-6"/>
                                 <span className="font-semibold">{t('logout')}</span>
@@ -213,34 +213,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                     </div>
 
                     <div className="flex items-center gap-2 group">
-                        <svg
-                            className="w-5 h-5 nexus-logo-animation"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <defs>
-                                <linearGradient id="nexus-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#a855f7" />
-                                    <stop offset="100%" stopColor="#3b82f6" />
-                                </linearGradient>
-                            </defs>
-                            <path
-                                d="M21 8.25V15.75L12 21L3 15.75V8.25L12 3L21 8.25Z"
-                                stroke="url(#nexus-gradient)"
-                                strokeWidth="1.5"
-                                strokeLinejoin="round"
-                                fill="none"
-                            />
-                            <path
-                                d="M12 12.5L3 8.25L12 3L21 8.25L12 12.5Z"
-                                stroke="url(#nexus-gradient)"
-                                strokeWidth="1.5"
-                                strokeLinejoin="round"
-                                fill="none"
-                            />
-                        </svg>
-                        <span className="text-sm font-bold text-nexus-gradient">NexusPlay</span>
+                       <img 
+                          src="https://i.postimg.cc/mZJK0nDd/20251104-203250.png" 
+                          alt="Aviator Predictor Pro" 
+                          className="w-10 opacity-70"
+                        />
+                        <span className="font-luckiest text-sm" style={{color: '#c0c0d0'}}>
+                          AVIATOR PREDICTOR PRO
+                        </span>
                     </div>
                 </div>
             </div>
