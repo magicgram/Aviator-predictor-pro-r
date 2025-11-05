@@ -289,7 +289,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[30vh] z-0 pointer-events-none">
+            <div className="absolute bottom-[-5px] left-[-5px] w-[calc(100%+10px)] h-[30vh] z-0 pointer-events-none">
               <div className="relative w-full h-full">
                 <svg
                   className="absolute bottom-0 left-0 w-full h-full"
