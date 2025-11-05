@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { languages } from '../lib/i18n';
@@ -126,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                             aria-label={t('changeProfilePic')}
                         >
                             {profilePic ? (
-                                <img src={profilePic} alt={t('profileAlt')} className="w-full h-full rounded-full object-cover" />
+                                <img src={profilePic} alt={t('profileAlt')} className="w-full h-full rounded-full object-cover" draggable="false" onContextMenu={(e) => e.preventDefault()} />
                             ) : (
                                 <UserIcon className="w-8 h-8 text-red-500" />
                             )}
@@ -209,10 +211,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                             </button>
                         )}
                     </div>
-                    <div className="flex items-center justify-end group flex-1">
-                        <span className="font-luckiest text-lg text-gray-400 select-none group-hover:text-gray-600 transition-colors duration-200 pr-4">
-                            NexusPlay
-                        </span>
+                    <div className="flex items-center justify-end group flex-1 pr-4">
+                        <img 
+                            src="https://i.postimg.cc/YSBsSRCd/Picsart-25-11-01-11-32-07-745.png" 
+                            alt="NexusPlay Logo" 
+                            className="h-6 opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+                            draggable="false" onContextMenu={(e) => e.preventDefault()}
+                        />
                     </div>
                 </div>
             </div>

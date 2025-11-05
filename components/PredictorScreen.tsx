@@ -77,7 +77,7 @@ const PredictorView = React.memo((props: {
         <div className="flex items-center gap-3">
              <div className="w-12 h-12 flex-shrink-0 bg-gray-100 border-2 border-gray-200 rounded-full flex items-center justify-center">
                 {props.profilePic ? (
-                    <img src={props.profilePic} alt={t('profileAlt')} className="w-full h-full rounded-full object-cover" />
+                    <img src={props.profilePic} alt={t('profileAlt')} className="w-full h-full rounded-full object-cover" draggable="false" onContextMenu={(e) => e.preventDefault()} />
                 ) : (
                     <UserIcon className="w-8 h-8 text-red-400" />
                 )}

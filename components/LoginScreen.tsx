@@ -220,7 +220,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
             </header>
 
             <div className="w-full max-w-sm flex flex-col items-center z-10 px-4 pt-12 sm:pt-16">
-                <img src="https://i.postimg.cc/d0V9DrJY/Picsart-25-11-04-16-01-32-557.png" alt="Aviator Predictor Pro" className="w-48 object-contain -mb-2" />
+                <img src="https://i.postimg.cc/d0V9DrJY/Picsart-25-11-04-16-01-32-557.png" alt="Aviator Predictor Pro" className="w-48 object-contain -mb-2" draggable="false" onContextMenu={(e) => e.preventDefault()} />
                 <h1 className="font-luckiest text-[2.5rem] leading-none text-white tracking-wide text-center" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
                     AVIATOR PREDICTOR PRO
                 </h1>
@@ -306,6 +306,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess, affiliateLink
                         src="https://i.postimg.cc/mZJK0nDd/20251104-203250.png" 
                         alt="Aviator Predictor Pro" 
                         className="w-24 opacity-30 mx-auto"
+                        draggable="false" onContextMenu={(e) => e.preventDefault()}
                     />
                     <p className="font-luckiest text-sm -mt-3" style={{color: '#c0c0d0', opacity: 0.8}}>
                       AVIATOR PREDICTOR PRO
