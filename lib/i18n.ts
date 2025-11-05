@@ -67,7 +67,7 @@ export const translations: Translations = {
     back: 'BACK',
     reDepositMessageTitle: 'Prediction Limit Reached!',
     reDepositMessageUsedAll: 'You have used all of your available predictions.',
-    reDepositMessageContinue: 'To continue receiving signals, please make another deposit of at least {{amount}}.',
+    reDepositMessageContinue: 'This small deposit confirms you are an active user and helps us maintain the prediction service. You will receive more predictions after a successful deposit of at least ₹400 or $4 in any currency.',
     depositAgain: 'DEPOSIT AGAIN',
     // Predictor Screen
     welcomeUser: 'Welcome, {{playerId}}',
@@ -84,7 +84,7 @@ export const translations: Translations = {
     unexpectedErrorSignal: 'An unexpected error occurred while getting the signal.',
     depositLinkNotAvailable: 'The deposit link is not available at the moment. Please try again later.',
     limitReachedTitle: 'Prediction Limit Reached',
-    limitReachedText: 'Please deposit at least {{amount}} to continue receiving predictions.',
+    limitReachedText: 'This small deposit confirms you are an active user and helps us maintain the prediction service. You will receive more predictions after a successful deposit of at least ₹400 or $4 in any currency.',
     depositNow: 'DEPOSIT NOW',
     // Onboarding
     welcomeGuide: 'Welcome Guide',
@@ -165,7 +165,7 @@ export const translations: Translations = {
     back: 'वापस',
     reDepositMessageTitle: 'भविष्यवाणी सीमा समाप्त!',
     reDepositMessageUsedAll: 'आपने अपनी सभी उपलब्ध भविष्यवाणियों का उपयोग कर लिया है।',
-    reDepositMessageContinue: 'सिग्नल प्राप्त करना जारी रखने के लिए, कृपया कम से कम {{amount}} की एक और जमा करें।',
+    reDepositMessageContinue: 'यह छोटी जमा राशि पुष्टि करती है कि आप एक सक्रिय उपयोगकर्ता हैं और हमें भविष्यवाणी सेवा बनाए रखने में मदद करती है। किसी भी मुद्रा में कम से कम ₹400 या $4 की सफल जमा राशि के बाद आपको और भविष्यवाणियां प्राप्त होंगी।',
     depositAgain: 'फिर से जमा करें',
     // Predictor Screen
     welcomeUser: 'स्वागत है, {{playerId}}',
@@ -182,7 +182,7 @@ export const translations: Translations = {
     unexpectedErrorSignal: 'सिग्नल प्राप्त करते समय एक अप्रत्याशित त्रुटि हुई।',
     depositLinkNotAvailable: 'जमा लिंक इस समय उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।',
     limitReachedTitle: 'भविष्यवाणी सीमा समाप्त',
-    limitReachedText: 'भविष्यवाणियां प्राप्त करना जारी रखने के लिए कृपया कम से कम {{amount}} जमा करें।',
+    limitReachedText: 'यह छोटी जमा राशि पुष्टि करती है कि आप एक सक्रिय उपयोगकर्ता हैं और हमें भविष्यवाणी सेवा बनाए रखने में मदद करती है। किसी भी मुद्रा में कम से कम ₹400 या $4 की सफल जमा राशि के बाद आपको और भविष्यवाणियां प्राप्त होंगी।',
     depositNow: 'अभी जमा करें',
     // Onboarding
     welcomeGuide: 'स्वागत गाइड',
@@ -263,7 +263,7 @@ export const translations: Translations = {
     back: 'পিছনে',
     reDepositMessageTitle: 'পূর্বাভাসের সীমা শেষ!',
     reDepositMessageUsedAll: 'আপনি আপনার সমস্ত উপলব্ধ পূর্বাভাস ব্যবহার করেছেন।',
-    reDepositMessageContinue: 'সংকেত পাওয়া চালিয়ে যেতে, অনুগ্রহ করে কমপক্ষে {{amount}} এর আরেকটি জমা দিন।',
+    reDepositMessageContinue: 'এই ছোট আমানতটি নিশ্চিত করে যে আপনি একজন সক্রিয় ব্যবহারকারী এবং আমাদের পূর্বাভাস পরিষেবা বজায় রাখতে সহায়তা করে। যেকোনো মুদ্রায় কমপক্ষে ₹400 বা $4 সফলভাবে জমা দেওয়ার পরে আপনি আরও পূর্বাভাস পাবেন।',
     depositAgain: 'আবার জমা দিন',
     // Predictor Screen
     welcomeUser: 'স্বাগতম, {{playerId}}',
@@ -280,7 +280,7 @@ export const translations: Translations = {
     unexpectedErrorSignal: 'সংকেত পাওয়ার সময় একটি অপ্রত্যাশিত ত্রুটি ঘটেছে।',
     depositLinkNotAvailable: 'জমা লিঙ্ক এই মুহূর্তে উপলব্ধ নয়। অনুগ্রহ করে পরে আবার চেষ্টা করুন।',
     limitReachedTitle: 'পূর্বাভাস সীমা শেষ',
-    limitReachedText: 'পূর্বাভাস পাওয়া চালিয়ে যেতে অনুগ্রহ করে কমপক্ষে {{amount}} জমা দিন।',
+    limitReachedText: 'এই ছোট আমানতটি নিশ্চিত করে যে আপনি একজন সক্রিয় ব্যবহারকারী এবং আমাদের পূর্বাভাস পরিষেবা বজায় রাখতে সহায়তা করে। যেকোনো মুদ্রায় কমপক্ষে ₹400 বা $4 সফলভাবে জমা দেওয়ার পরে আপনি আরও পূর্বাভাস পাবেন।',
     depositNow: 'এখনই জমা দিন',
     // Onboarding
     welcomeGuide: 'স্বাগতম গাইড',
