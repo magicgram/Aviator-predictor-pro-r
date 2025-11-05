@@ -60,8 +60,8 @@ export const translations: Translations = {
     redirecting: 'Redirecting',
     // Deposit Messages
     depositMessageTitle: 'Great, you have successfully completed registration!',
-    depositMessageSync: 'Your account is synchronized with the app.',
-    depositMessageDeposit: 'To gain access to signals, deposit your account (make a deposit) with at least {{amount}} in any currency.',
+    depositMessageSync: 'Your account is synchronized with the App.',
+    depositMessageDeposit: 'To gain access to signals, deposit your account (make a deposit) with at least 500₹ or $5 in any currency.',
     depositMessageAccess: 'After successfully replenishing your account, enter your Player ID again to get access.',
     depositAndGetAccess: 'Deposit & Get Access',
     back: 'Back',
@@ -159,7 +159,7 @@ export const translations: Translations = {
     // Deposit Messages
     depositMessageTitle: 'बढ़िया, आपने सफलतापूर्वक पंजीकरण पूरा कर लिया है!',
     depositMessageSync: 'आपका खाता ऐप के साथ सिंक्रनाइज़ है।',
-    depositMessageDeposit: 'सिग्नल तक पहुंच प्राप्त करने के लिए, अपने खाते में किसी भी मुद्रा में कम से कम {{amount}} जमा करें।',
+    depositMessageDeposit: 'सिग्नल तक पहुंच प्राप्त करने के लिए, अपने खाते में किसी भी मुद्रा में कम से कम 500₹ या $5 जमा करें।',
     depositMessageAccess: 'अपने खाते को सफलतापूर्वक फिर से भरने के बाद, पहुंच प्राप्त करने के लिए अपनी प्लेयर आईडी फिर से दर्ज करें।',
     depositAndGetAccess: 'जमा करें और पहुंच प्राप्त करें',
     back: 'वापस',
@@ -257,7 +257,7 @@ export const translations: Translations = {
     // Deposit Messages
     depositMessageTitle: 'দারুণ, আপনি সফলভাবে নিবন্ধন সম্পন্ন করেছেন!',
     depositMessageSync: 'আপনার অ্যাকাউন্ট অ্যাপের সাথে সিঙ্ক্রোনাইজ করা হয়েছে।',
-    depositMessageDeposit: 'সংকেত অ্যাক্সেস করতে, আপনার অ্যাকাউন্টে যেকোনো মুদ্রায় কমপক্ষে {{amount}} জমা দিন।',
+    depositMessageDeposit: 'সংকেত অ্যাক্সেস করতে, আপনার অ্যাকাউন্টে যেকোনো মুদ্রায় কমপক্ষে 500₹ বা $5 জমা দিন।',
     depositMessageAccess: 'সফলভাবে আপনার অ্যাকাউন্ট পুনরায় পূরণ করার পরে, অ্যাক্সেস পেতে আপনার প্লেয়ার আইডি আবার লিখুন।',
     depositAndGetAccess: 'জমা দিন এবং অ্যাক্সেস পান',
     back: 'পিছনে',

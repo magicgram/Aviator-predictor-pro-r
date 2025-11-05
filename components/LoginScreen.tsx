@@ -39,7 +39,11 @@ const DepositMessage: React.FC<{
   return (
     <div className="w-full max-w-sm mx-auto text-white text-center animate-fade-in-up">
       <h2 className="text-2xl font-bold mb-4">{t('depositMessageTitle')}</h2>
-      <p className="mb-6 font-poppins">{t('depositMessageAccess')}</p>
+      <div className="mb-6 font-poppins space-y-3">
+          <p>{t('depositMessageSync')}</p>
+          <p>{t('depositMessageDeposit')}</p>
+          <p>{t('depositMessageAccess')}</p>
+      </div>
       <div className="space-y-4">
         <button
           onClick={onRegister}
