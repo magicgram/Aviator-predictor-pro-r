@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { User } from '../types';
 import { usePrediction } from '../services/authService';
@@ -40,7 +39,7 @@ const LimitReachedView = React.memo(({ handleDepositRedirect, affiliateLink }: {
   return (
     <div className="text-center p-8 bg-white text-gray-800 rounded-lg shadow-xl w-full max-w-md">
       <h2 className="text-2xl font-russo text-red-500 uppercase">{t('limitReachedTitle')}</h2>
-      <p className="mt-4 text-gray-600 font-poppins">{t('limitReachedText', { amount: '$4' })}</p>
+      <p className="mt-4 text-gray-600 font-poppins">{t('limitReachedText')}</p>
       <button 
         onClick={handleDepositRedirect}
         disabled={!affiliateLink}

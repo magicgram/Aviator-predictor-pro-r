@@ -1,6 +1,5 @@
-
 import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
-import { translations } from '../lib/i18n';
+import { translations, currencyData } from '../lib/i18n';
 
 interface LanguageContextType {
   language: string;
@@ -34,6 +33,27 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         translation = translation.replace(regex, String(vars[varKey]));
       });
     }
+
+    const formatCurrency = (amountInr: number): string => {
+        if (language === 'en' || language === 'hi') {
+          return `₹${amountInr}`;
+        }
+        const currency = currencyData[language];
+        if (currency) {
+          const convertedAmount = amountInr * currency.rate;
+          const roundedAmount = Math.round(convertedAmount);
+           if (['id', 'vi', 'ja', 'ko', 'fa', 'my', 'uz', 'hu'].includes(language)) {
+            return `${currency.symbol}${roundedAmount.toLocaleString('en-US')}`;
+          }
+          return `${currency.symbol}${roundedAmount}`;
+        }
+        // Fallback to USD if no specific currency data is available.
+        const amountUsd = Math.round(amountInr / 83); // Approx 1 USD = 83 INR
+        return `$${amountUsd}`;
+    };
+    
+    translation = translation.replace(/{{amount500}}/g, formatCurrency(500));
+    translation = translation.replace(/{{amount400}}/g, formatCurrency(400));
 
     return translation;
   }, [language]);

@@ -95,7 +95,7 @@ const ReDepositMessage: React.FC<{
   return (
     <div className="w-full max-w-sm mx-auto text-white text-center animate-fade-in-up">
       <h2 className="text-2xl font-bold mb-4">{t('reDepositMessageTitle')}</h2>
-      <p className="mb-6 font-poppins">{t('reDepositMessageContinue', { amount: '$4' })}</p>
+      <p className="mb-6 font-poppins">{t('reDepositMessageContinue')}</p>
       <div className="space-y-4">
         <button
           onClick={onRegister}
