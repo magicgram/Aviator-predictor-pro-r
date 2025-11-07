@@ -17,8 +17,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   // Fetch the affiliate link from environment variables.
   const affiliateLink = process.env.AFFILIATE_LINK || '';
-  // Check if the admin password is set.
-  const isAdminPasswordSet = !!process.env.ADMIN_PASSWORD;
 
-  return res.status(200).json({ affiliateLink, isAdminPasswordSet });
+  return res.status(200).json({ affiliateLink });
 }

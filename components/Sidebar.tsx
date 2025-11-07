@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { languages } from '../lib/i18n';
@@ -55,11 +53,10 @@ interface SidebarProps {
   isLoggedIn: boolean;
   playerId?: string;
   onProfilePictureChange?: (newPicUrl: string) => void;
-  isAdminFeatureEnabled: boolean;
   onTestPostbackClick: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout, isLoggedIn, playerId, onProfilePictureChange, isAdminFeatureEnabled, onTestPostbackClick }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout, isLoggedIn, playerId, onProfilePictureChange, onTestPostbackClick }) => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -159,42 +156,42 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onLogout
                         <HomeIcon className="w-6 h-6"/>
                         <span className="font-semibold">{t('predictorHome')}</span>
                     </button>
-                    {isAdminFeatureEnabled && (
-                      <button 
-                          onClick={onTestPostbackClick}
-                          className="flex items-center gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
-                      >
-                          <TestIcon className="w-6 h-6"/>
-                          <span className="font-semibold">{t('testPostback')}</span>
-                      </button>
+                    <button 
+                        onClick={onTestPostbackClick}
+                        className="flex items-center gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
+                    >
+                        <TestIcon className="w-6 h-6"/>
+                        <span className="font-semibold">{t('testPostback')}</span>
+                    </button>
+                     {languages.length > 1 && (
+                        <div>
+                            <button
+                                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                                className="w-full flex items-center justify-between gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <LanguageIcon className="w-6 h-6" />
+                                    <span className="font-semibold">{t('language')}</span>
+                                </div>
+                                <svg className={`w-5 h-5 transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            {isLangMenuOpen && (
+                                <div className="mt-2 pl-4 max-h-60 overflow-y-auto">
+                                    {languages.map((lang) => (
+                                        <button
+                                            key={lang.code}
+                                            onClick={() => handleLanguageSelect(lang.code)}
+                                            className={`w-full text-left p-2 rounded-md text-sm transition-colors ${language === lang.code ? 'bg-red-100 text-red-600' : 'text-gray-600 hover:bg-red-50'}`}
+                                        >
+                                            {lang.flag} {lang.name}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     )}
-                     <div>
-                        <button
-                            onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                            className="w-full flex items-center justify-between gap-4 p-3 rounded-lg text-left text-gray-700 hover:bg-red-100 hover:text-red-500 transition-colors duration-200"
-                        >
-                            <div className="flex items-center gap-4">
-                                <LanguageIcon className="w-6 h-6" />
-                                <span className="font-semibold">{t('language')}</span>
-                            </div>
-                            <svg className={`w-5 h-5 transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        {isLangMenuOpen && (
-                            <div className="mt-2 pl-4 max-h-60 overflow-y-auto">
-                                {languages.map((lang) => (
-                                    <button
-                                        key={lang.code}
-                                        onClick={() => handleLanguageSelect(lang.code)}
-                                        className={`w-full text-left p-2 rounded-md text-sm transition-colors ${language === lang.code ? 'bg-red-100 text-red-600' : 'text-gray-600 hover:bg-red-50'}`}
-                                    >
-                                        {lang.flag} {lang.name}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-                    </div>
                 </div>
             </nav>
             

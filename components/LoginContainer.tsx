@@ -10,10 +10,9 @@ import GuideModal from './GuideModal';
 interface LoginContainerProps {
   onLoginSuccess: (playerId: string, predictionsLeft: number) => void;
   affiliateLink: string | null;
-  isAdminFeatureEnabled: boolean;
 }
 
-const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affiliateLink, isAdminFeatureEnabled }) => {
+const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affiliateLink }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentView, setCurrentView] = useState('login'); // 'login' or 'testPostback'
   const [showAdminModal, setShowAdminModal] = useState(false);
@@ -57,7 +56,6 @@ const LoginContainer: React.FC<LoginContainerProps> = ({ onLoginSuccess, affilia
         onNavigate={handleNavigate}
         onLogout={() => {}} // No-op when not logged in
         isLoggedIn={false}
-        isAdminFeatureEnabled={isAdminFeatureEnabled}
         onTestPostbackClick={handleTestPostbackClick}
       />
       {currentView === 'testPostback' ? (

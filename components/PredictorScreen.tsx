@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { User } from '../types';
 import { usePrediction } from '../services/authService';
@@ -13,7 +12,6 @@ interface PredictorScreenProps {
   user: User;
   onLogout: () => void;
   affiliateLink: string | null;
-  isAdminFeatureEnabled: boolean;
 }
 
 const MenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -152,7 +150,7 @@ const PredictorView = React.memo((props: {
   );
 });
 
-const PredictorScreen: React.FC<PredictorScreenProps> = ({ user, onLogout, affiliateLink, isAdminFeatureEnabled }) => {
+const PredictorScreen: React.FC<PredictorScreenProps> = ({ user, onLogout, affiliateLink }) => {
   const [prediction, setPrediction] = useState<string | null>(null);
   const [accuracy, setAccuracy] = useState<number | null>(null);
   const [isPredicting, setIsPredicting] = useState(false);
@@ -290,7 +288,6 @@ const PredictorScreen: React.FC<PredictorScreenProps> = ({ user, onLogout, affil
         isLoggedIn={true}
         playerId={user.playerId}
         onProfilePictureChange={handleProfilePictureChange}
-        isAdminFeatureEnabled={isAdminFeatureEnabled}
         onTestPostbackClick={handleTestPostbackClick}
       />
       {currentView === 'predictor' && (

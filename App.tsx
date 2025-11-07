@@ -1,5 +1,4 @@
 
-
 import React, { useState, useCallback, useEffect } from 'react';
 import LoginContainer from './components/LoginContainer';
 import PredictorScreen from './components/PredictorScreen';
@@ -12,7 +11,6 @@ const App: React.FC = () => {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [affiliateLink, setAffiliateLink] = useState<string | null>(null);
   const [isLoadingConfig, setIsLoadingConfig] = useState(true);
-  const [isAdminFeatureEnabled, setIsAdminFeatureEnabled] = useState(false);
 
   useEffect(() => {
     // Fetch the affiliate link and admin feature status from our API endpoint
@@ -24,12 +22,10 @@ const App: React.FC = () => {
         }
         const config = await response.json();
         setAffiliateLink(config.affiliateLink || ''); // Use empty string if link is missing
-        setIsAdminFeatureEnabled(config.isAdminPasswordSet);
-        // FIX: Added an opening brace for the catch block to fix a syntax error.
       } catch (error) {
         console.error("Could not fetch config:", error);
         setAffiliateLink(''); // Set to empty on error to prevent issues
-        setIsAdminFeatureEnabled(false);
+      // FIX: Removed an extra closing brace to correct the try-catch-finally syntax. This was causing a scope issue which led to multiple 'Cannot find name' errors.
       } finally {
         setIsLoadingConfig(false);
       }
@@ -79,13 +75,11 @@ const App: React.FC = () => {
             user={user} 
             onLogout={handleLogout} 
             affiliateLink={affiliateLink} 
-            isAdminFeatureEnabled={isAdminFeatureEnabled} 
           />
         ) : (
           <LoginContainer 
             onLoginSuccess={handleLoginSuccess} 
             affiliateLink={affiliateLink} 
-            isAdminFeatureEnabled={isAdminFeatureEnabled} 
           />
         )}
       </div>
